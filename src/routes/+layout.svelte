@@ -4,6 +4,7 @@
 	import '../app.postcss';
 	import { AppBar, AppRail, AppRailTile, AppShell } from '@skeletonlabs/skeleton';
 	import { storeValue } from '$store/app-rail';
+	import { PencilSolid, NoteStickyRegular } from 'svelte-awesome-icons';
 </script>
 
 <AppShell>
@@ -14,9 +15,12 @@
 	</svelte:fragment>
 	<svelte:fragment slot="sidebarLeft">
 		<AppRail selected={storeValue}>
-			<AppRailTile label="Tile" title="Tile One" value={1}>(icon )</AppRailTile>
-			<AppRailTile label="Tile" title="Tile Two" value={2}>(icon )</AppRailTile>
-			<AppRailTile label="Tile" title="Tile Two" value={3}>(icon )</AppRailTile>
+			<AppRailTile label="Notes" title="Notes" value={1}>
+				<NoteStickyRegular size="25" color="#000a" />
+			</AppRailTile>
+			<AppRailTile label="Write" title="Write" value={2}>
+				<PencilSolid size="25" color="#000a" />
+			</AppRailTile>
 		</AppRail>
 	</svelte:fragment>
 	<!-- Router Slot -->
