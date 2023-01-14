@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Card from '$components/card.svelte';
-
 	const notes: { date: string; title: string; status: 'DONE' | 'DRAFT' | 'IN PROGRESS' }[] = [
 		{ date: '2023-01-15', title: 'Svelte notes', status: 'DRAFT' },
 		{ date: '2023-01-15', title: 'SolidJS notes', status: 'IN PROGRESS' },
@@ -14,9 +12,11 @@
 </script>
 
 <div class="m-4 p-4">
-	<div class="flex gap-4 flex-wrap">
+	<div class="flex gap-4 flex-wrap ">
 		{#each notes as note}
-			<Card header={note.date} body={note.title} footer={note.status} />
+			<div class="border-2 border-red-200 shadow-md">
+				<p>{note.title}</p>
+			</div>
 		{/each}
 	</div>
 </div>
