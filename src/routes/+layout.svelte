@@ -2,9 +2,18 @@
 	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
 	import '@skeletonlabs/skeleton/styles/all.css';
 	import '../app.postcss';
-	import { AppBar, AppRail, AppRailTile, AppShell } from '@skeletonlabs/skeleton';
+	import {
+		AppBar,
+		AppRail,
+		AppRailTile,
+		AppShell,
+		Modal,
+		modalStore
+	} from '@skeletonlabs/skeleton';
 	import { storeValue } from '$store/app-rail';
 	import { PencilSolid, NoteStickyRegular } from 'svelte-awesome-icons';
+	import ModalForm from '$components/modal-form.svelte';
+	import { triggerModalForm } from '$store/modal';
 </script>
 
 <AppShell>
@@ -18,7 +27,14 @@
 			<AppRailTile label="Notes" title="Notes" value={1}>
 				<NoteStickyRegular size="25" color="#000a" />
 			</AppRailTile>
-			<AppRailTile label="Write" title="Write" value={2}>
+			<AppRailTile
+				label="Write"
+				title="Write"
+				value={2}
+				on:click={() => {
+					triggerModalForm();
+				}}
+			>
 				<PencilSolid size="25" color="#000a" />
 			</AppRailTile>
 		</AppRail>
@@ -29,3 +45,4 @@
 	<!-- <svelte:fragment slot="pageFooter">Page Footer</svelte:fragment> -->
 	<!-- <svelte:fragment slot="footer">Footer is here</svelte:fragment> -->
 </AppShell>
+<Modal />
