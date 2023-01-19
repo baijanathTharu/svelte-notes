@@ -1,12 +1,19 @@
 const config = {
 	darkMode: 'class',
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+	content: [
+		'./src/**/*.{html,js,svelte,ts}',
+		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'
+	],
 
 	theme: {
 		extend: {}
 	},
 
-	plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')]
+	plugins: [
+		require('flowbite/plugin'),
+		require('@tailwindcss/typography'),
+		require('@tailwindcss/forms')
+	]
 };
 
 module.exports = config;
