@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button } from 'flowbite-svelte';
+	import { Button, Card } from 'flowbite-svelte';
 	const notes: { date: string; title: string; status: 'DONE' | 'DRAFT' | 'IN PROGRESS' }[] = [
 		{ date: '2023-01-15', title: 'Svelte notes', status: 'DRAFT' },
 		{ date: '2023-01-15', title: 'SolidJS notes', status: 'IN PROGRESS' },
@@ -13,19 +13,16 @@
 </script>
 
 <div class="m-4 p-4">
-	<Button>Default</Button>
-	<Button color="alternative">Alternative</Button>
-	<Button color="dark">Dark</Button>
-	<Button color="light">Light</Button>
-	<Button color="green">Green</Button>
-	<Button color="red">Red</Button>
-	<Button color="yellow">Yellow</Button>
-	<Button color="purple">Purple</Button>
 	<div class="flex gap-4 flex-wrap ">
 		{#each notes as note}
-			<div class="border-2 border-red-200 shadow-md">
-				<p>{note.title}</p>
-			</div>
+			<Card>
+				<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+					{note.title}
+				</h5>
+				<p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">
+					{note.status}
+				</p>
+			</Card>
 		{/each}
 	</div>
 </div>
